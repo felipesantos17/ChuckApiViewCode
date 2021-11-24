@@ -3,7 +3,7 @@ import UIKit
 
 class JokeCategoriesView: UIView {
     
-    private let primaryColorAPP: UIColor = UIColor(red: 241/255, green: 90/255, blue: 36/255, alpha: 1.0)
+    private let primaryColorAPP: UIColor = .black
     
     lazy var titleTableLabel: UILabel = {
         let label = UILabel()
