@@ -38,8 +38,6 @@ class JokeCategoriesViewController: UIViewController {
         super.viewDidAppear(animated)
         interactor.fetchCategories()
     }
-    
-    
 }
 
 extension JokeCategoriesViewController: JokeCategoriesDisplayLogic {
@@ -52,18 +50,37 @@ extension JokeCategoriesViewController: JokeCategoriesDisplayLogic {
     func displayErrorMessage(error: Error) {
         print("Aconteceu um erro")
     }
+    
 }
 
 
 extension JokeCategoriesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("valor é \(categories[indexPath.row])")
-//        let viewController: OneJokeViewController = OneJokeViewController(selectedCategory: categories[indexPath.row])
-//        self.navigationController?.pushViewController(viewController, animated: true)
-//
-//        self.jokeCategoriesView?.tableView.deselectRow(at: indexPath, animated: true)
-        print(categories[indexPath.row])
+        //MARK:- Scene One Joke ViewController
+        
+        func createOneJokeViewController() -> OneJokeViewController {
+            let presenter = OneJokePresenter()
+
+            let interactor = OneJokeInteractor(
+                presenter: presenter,
+                chuckAPIGeneric: ChuckAPIGeneric()
+            )
+            
+            let viewController = OneJokeViewController(
+                selectedCategory: categories[indexPath.row],
+                interactor: interactor
+            )
+            
+            presenter.viewController = viewController
+            
+            return viewController
+        }
+        
+        let viewController = createOneJokeViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+
+        self.jokeCategoriesView?.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    //MARK:- Scenes
+    //MARK:- Scene JokeCategories
     
     func createJokeCategoriesViewController() -> JokeCategoriesViewController {
         let presenter = JokeCategoriesPresenter()

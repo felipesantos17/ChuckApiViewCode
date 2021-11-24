@@ -14,7 +14,6 @@ class JokeCategoriesInteractor: JokeCategoriesInteractorLogic, JokeCategoriesDat
     private let presenter: JokeCategoriesPresenterLogic
     private let jokeCategoriesService: JokeCategoriesService
     
-    
     var categories: [String]?
     
     init(presenter: JokeCategoriesPresenterLogic, jokeCategoriesService: JokeCategoriesService) {
