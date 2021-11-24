@@ -1,11 +1,17 @@
 
 import UIKit
 
+protocol OneJokeDisplayLogic {
+    func displayOneJoke(oneJoke: String)
+}
+
 class OneJokeViewController: UIViewController {
     
-    private let selectedCategory: String!
+    private let selectedCategory: String
     
     private var titleCategorySelected: String = "The selected category was "
+    
+    private let interactor: OneJokeInteractorLogic
     
     var oneJokeView: OneJokeView?
     
@@ -18,11 +24,11 @@ class OneJokeViewController: UIViewController {
         super.viewDidLoad()
         self.oneJokeView?.delegate(delegate: self)
         self.oneJokeView?.setUpTitleSelectCategory(data: titleCategorySelected + selectedCategory)
-        self.fethJoke()
     }
     
-    init(selectedCategory: String) {
+    init(selectedCategory: String, interactor: OneJokeInteractorLogic) {
         self.selectedCategory = selectedCategory
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,34 +36,24 @@ class OneJokeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func newURL(name: String) -> String {
-        let newSentURL = "random?category=\(name)"
-        return newSentURL
-    }
-    
-    func fethJoke() {
-        
-//        let sentCategorySelectedURL = newURL(name: self.selectedCategory)
-//        
-//        ChuckAPI.getAPI(urlSent: sentCategorySelectedURL, expecting: OneJoke.self, callback: (
-//            { [weak self] categoriesJokeResult in
-//                DispatchQueue.main.async {
-//                    switch categoriesJokeResult {
-//                    case let .failure(error):
-//                        print(error)
-//                    case let .success(data):
-//                        self?.oneJokeView?.setUpOneJokeThisCategory(data: data.value)
-//                    }
-//                }
-//            }
-//        ))
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        interactor.fetchOneJoke(category: selectedCategory)
     }
     
 }
 
 extension OneJokeViewController: OneJokeViewProtocol {
     func actionOneMoreJoke() {
-        fethJoke()
+        interactor.fetchOneJoke(category: selectedCategory)
     }
-
 }
+
+extension OneJokeViewController: OneJokeDisplayLogic {
+    
+    func displayOneJoke(oneJoke: String) {
+        self.oneJokeView?.setUpOneJokeThisCategory(data: oneJoke)
+    }
+ 
+}
+
