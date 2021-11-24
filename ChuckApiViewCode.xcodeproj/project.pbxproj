@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92BBC2D274D512200E31382 /* JokeCategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC2C274D512200E31382 /* JokeCategoriesPresenter.swift */; };
+		C92BBC30274D55FF00E31382 /* JokeCategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */; };
+		C92BBC32274D868500E31382 /* JokeCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC31274D868500E31382 /* JokeCategoriesService.swift */; };
 		C945B3B5274530D100C55CBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3B4274530D100C55CBF /* AppDelegate.swift */; };
 		C945B3B7274530D100C55CBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3B6274530D100C55CBF /* SceneDelegate.swift */; };
 		C945B3BE274530D300C55CBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C945B3BD274530D300C55CBF /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C92BBC2C274D512200E31382 /* JokeCategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesPresenter.swift; sourceTree = "<group>"; };
+		C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesInteractor.swift; sourceTree = "<group>"; };
+		C92BBC31274D868500E31382 /* JokeCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesService.swift; sourceTree = "<group>"; };
 		C945B3B1274530D100C55CBF /* ChuckApiViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChuckApiViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C945B3B4274530D100C55CBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C945B3B6274530D100C55CBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92BBC2B274D504200E31382 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				C92BBC2C274D512200E31382 /* JokeCategoriesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		C92BBC2E274D548300E31382 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */,
+				C92BBC31274D868500E31382 /* JokeCategoriesService.swift */,
+				C945B3D7274536AC00C55CBF /* ChuckAPI.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		C945B3A8274530D100C55CBF = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +105,8 @@
 		C945B3C82745317500C55CBF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				C92BBC2E274D548300E31382 /* Interactor */,
+				C92BBC2B274D504200E31382 /* Presenter */,
 				C945B3DF27455B4300C55CBF /* Cell */,
 				C945B3CA2745319C00C55CBF /* View */,
 				C945B3C92745319200C55CBF /* ViewController */,
@@ -133,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				C945B3D52745368000C55CBF /* OneJoke.swift */,
-				C945B3D7274536AC00C55CBF /* ChuckAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,9 +246,12 @@
 				C945B3DA2745385300C55CBF /* JokeCategoriesViewController.swift in Sources */,
 				C945B3B7274530D100C55CBF /* SceneDelegate.swift in Sources */,
 				C945B3E127455C4D00C55CBF /* JokeCategoryTableViewCell.swift in Sources */,
+				C92BBC30274D55FF00E31382 /* JokeCategoriesInteractor.swift in Sources */,
+				C92BBC2D274D512200E31382 /* JokeCategoriesPresenter.swift in Sources */,
 				C945B3D62745368000C55CBF /* OneJoke.swift in Sources */,
 				C945B3D8274536AC00C55CBF /* ChuckAPI.swift in Sources */,
 				C945B3E427468A9E00C55CBF /* OneJokeView.swift in Sources */,
+				C92BBC32274D868500E31382 /* JokeCategoriesService.swift in Sources */,
 				C945B3DC2745397200C55CBF /* OneJokeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

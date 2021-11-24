@@ -11,16 +11,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    // O AppDelegate é responsável pelo ciclo de vida e configurações do aplicativo. É onde colocamos nossas configurações do FireBase, Pods, etc...
+    //MARK:- Scenes
     
-    // o SceneDelegate é responsável pelo o que é mostrado na tela, e com ele nós podemos manipular e gerenciar a forma como o aplicativo é exibido.
+    func createJokeCategoriesViewController() -> JokeCategoriesViewController {
+        let presenter = JokeCategoriesPresenter()
+        
+        let interactor = JokeCategoriesInteractor(
+            presenter: presenter,
+            jokeCategoriesService: JokeCategoriesService(
+                categoriesStore: ChuckAPI()
+            )
+        )
+        
+        let viewController = JokeCategoriesViewController(
+            interactor: interactor
+        )
+        
+        presenter.viewController = viewController
+
+        return viewController
+    }
     
-    // Esse metodo irá criar uma nova UIwindow, e definir o controlador de visualização raiz(root) e tornar a window a janela principal a ser exibida.
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let vc:JokeCategoriesViewController = JokeCategoriesViewController()
+        let vc = createJokeCategoriesViewController()
         let navVC = UINavigationController(rootViewController: vc)
         window.rootViewController = navVC
         window.makeKeyAndVisible()

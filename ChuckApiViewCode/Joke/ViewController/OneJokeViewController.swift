@@ -37,20 +37,20 @@ class OneJokeViewController: UIViewController {
     
     func fethJoke() {
         
-        let sentCategorySelectedURL = newURL(name: self.selectedCategory)
-        
-        ChuckAPI.getAPI(urlSent: sentCategorySelectedURL, expecting: OneJoke.self, callback: (
-            { [weak self] categoriesJokeResult in
-                DispatchQueue.main.async {
-                    switch categoriesJokeResult {
-                    case let .failure(error):
-                        print(error)
-                    case let .success(data):
-                        self?.oneJokeView?.setUpOneJokeThisCategory(data: data.value)
-                    }
-                }
-            }
-        ))
+//        let sentCategorySelectedURL = newURL(name: self.selectedCategory)
+//        
+//        ChuckAPI.getAPI(urlSent: sentCategorySelectedURL, expecting: OneJoke.self, callback: (
+//            { [weak self] categoriesJokeResult in
+//                DispatchQueue.main.async {
+//                    switch categoriesJokeResult {
+//                    case let .failure(error):
+//                        print(error)
+//                    case let .success(data):
+//                        self?.oneJokeView?.setUpOneJokeThisCategory(data: data.value)
+//                    }
+//                }
+//            }
+//        ))
     }
     
 }
