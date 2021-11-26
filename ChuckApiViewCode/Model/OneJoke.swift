@@ -2,10 +2,10 @@
 import Foundation
 
 struct OneJoke: Codable {
-    let id: String
+    var id: String
     let categories: [String]
     let iconUrl: String
-    let value: String
+    var value: String
     
     enum CodingKeys: String, CodingKey {
         case id

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C92BBC2D274D512200E31382 /* JokeCategoriesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC2C274D512200E31382 /* JokeCategoriesPresenter.swift */; };
 		C92BBC30274D55FF00E31382 /* JokeCategoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */; };
-		C92BBC32274D868500E31382 /* JokeCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC31274D868500E31382 /* JokeCategoriesService.swift */; };
 		C92BBC35274E6AE100E31382 /* OneJokeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC34274E6AE100E31382 /* OneJokeInteractor.swift */; };
 		C92BBC38274E78F300E31382 /* OneJokePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC37274E78F300E31382 /* OneJokePresenter.swift */; };
 		C92BBC3A274E8F3100E31382 /* ChuckAPIGeneric.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BBC39274E8F3100E31382 /* ChuckAPIGeneric.swift */; };
@@ -18,7 +17,6 @@
 		C945B3BE274530D300C55CBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C945B3BD274530D300C55CBF /* Assets.xcassets */; };
 		C945B3C1274530D300C55CBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C945B3BF274530D300C55CBF /* LaunchScreen.storyboard */; };
 		C945B3D62745368000C55CBF /* OneJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3D52745368000C55CBF /* OneJoke.swift */; };
-		C945B3D8274536AC00C55CBF /* ChuckAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3D7274536AC00C55CBF /* ChuckAPI.swift */; };
 		C945B3DA2745385300C55CBF /* JokeCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3D92745385300C55CBF /* JokeCategoriesViewController.swift */; };
 		C945B3DC2745397200C55CBF /* OneJokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3DB2745397200C55CBF /* OneJokeViewController.swift */; };
 		C945B3DE27454BF300C55CBF /* JokeCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945B3DD27454BF300C55CBF /* JokeCategoriesView.swift */; };
@@ -29,7 +27,6 @@
 /* Begin PBXFileReference section */
 		C92BBC2C274D512200E31382 /* JokeCategoriesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesPresenter.swift; sourceTree = "<group>"; };
 		C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesInteractor.swift; sourceTree = "<group>"; };
-		C92BBC31274D868500E31382 /* JokeCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesService.swift; sourceTree = "<group>"; };
 		C92BBC34274E6AE100E31382 /* OneJokeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneJokeInteractor.swift; sourceTree = "<group>"; };
 		C92BBC37274E78F300E31382 /* OneJokePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneJokePresenter.swift; sourceTree = "<group>"; };
 		C92BBC39274E8F3100E31382 /* ChuckAPIGeneric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPIGeneric.swift; sourceTree = "<group>"; };
@@ -40,7 +37,6 @@
 		C945B3C0274530D300C55CBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C945B3C2274530D300C55CBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C945B3D52745368000C55CBF /* OneJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneJoke.swift; sourceTree = "<group>"; };
-		C945B3D7274536AC00C55CBF /* ChuckAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckAPI.swift; sourceTree = "<group>"; };
 		C945B3D92745385300C55CBF /* JokeCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesViewController.swift; sourceTree = "<group>"; };
 		C945B3DB2745397200C55CBF /* OneJokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneJokeViewController.swift; sourceTree = "<group>"; };
 		C945B3DD27454BF300C55CBF /* JokeCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeCategoriesView.swift; sourceTree = "<group>"; };
@@ -71,8 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				C92BBC2F274D55FF00E31382 /* JokeCategoriesInteractor.swift */,
-				C92BBC31274D868500E31382 /* JokeCategoriesService.swift */,
-				C945B3D7274536AC00C55CBF /* ChuckAPI.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -81,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				C92BBC34274E6AE100E31382 /* OneJokeInteractor.swift */,
-				C92BBC39274E8F3100E31382 /* ChuckAPIGeneric.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -184,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				C945B3D52745368000C55CBF /* OneJoke.swift */,
+				C92BBC39274E8F3100E31382 /* ChuckAPIGeneric.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,9 +270,7 @@
 				C92BBC30274D55FF00E31382 /* JokeCategoriesInteractor.swift in Sources */,
 				C92BBC2D274D512200E31382 /* JokeCategoriesPresenter.swift in Sources */,
 				C945B3D62745368000C55CBF /* OneJoke.swift in Sources */,
-				C945B3D8274536AC00C55CBF /* ChuckAPI.swift in Sources */,
 				C945B3E427468A9E00C55CBF /* OneJokeView.swift in Sources */,
-				C92BBC32274D868500E31382 /* JokeCategoriesService.swift in Sources */,
 				C92BBC35274E6AE100E31382 /* OneJokeInteractor.swift in Sources */,
 				C945B3DC2745397200C55CBF /* OneJokeViewController.swift in Sources */,
 			);

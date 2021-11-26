@@ -18,9 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let interactor = JokeCategoriesInteractor(
             presenter: presenter,
-            jokeCategoriesService: JokeCategoriesService(
-                categoriesStore: ChuckAPI()
-            )
+            chuckAPIGeneric: ChuckAPIGeneric()
         )
         
         let viewController = JokeCategoriesViewController(

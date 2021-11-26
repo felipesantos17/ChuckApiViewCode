@@ -3,14 +3,14 @@ import UIKit
 
 class JokeCategoryTableViewCell: UITableViewCell {
     
-    private let primaryColorAPP: UIColor = .black
-    
     static let identifier: String = "JokeCategoryTableViewCell"
-    
+ 
     lazy var categoryJokeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = self.primaryColorAPP
+        label.textColor = .black
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -36,8 +36,10 @@ class JokeCategoryTableViewCell: UITableViewCell {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             
-            self.categoryJokeLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            self.categoryJokeLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            self.categoryJokeLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.categoryJokeLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            self.categoryJokeLabel.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+            self.categoryJokeLabel.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor)
             
         ])
     }
