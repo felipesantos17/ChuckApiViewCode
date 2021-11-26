@@ -3,14 +3,13 @@ import UIKit
 
 protocol JokeCategoriesDisplayLogic: AnyObject {
     func displayCategories(categories: [String])
-    func displayErrorMessage(error: Error)
 }
 
 class JokeCategoriesViewController: UIViewController {
     
     var jokeCategoriesView: JokeCategoriesView?
     
-    var categories: [String] = ["Carregando..."]
+    var categories: [String] = ["Loading..."]
     
     private let interactor: JokeCategoriesInteractorLogic
     
@@ -31,7 +30,6 @@ class JokeCategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.jokeCategoriesView?.configTableViewPotocols(delegate: self, dataSource: self)
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,37 +45,33 @@ extension JokeCategoriesViewController: JokeCategoriesDisplayLogic {
         self.jokeCategoriesView?.tableView.reloadData()
     }
     
-    func displayErrorMessage(error: Error) {
-        print("Aconteceu um erro")
-    }
-    
 }
 
 
 extension JokeCategoriesViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //MARK:- Scene One Joke ViewController
-        
-        func createOneJokeViewController() -> OneJokeViewController {
-            let presenter = OneJokePresenter()
+    //MARK:- Scene One Joke ViewController
+    
+    func createOneJokeViewController(indexPath: IndexPath) -> OneJokeViewController {
+        let presenter = OneJokePresenter()
 
-            let interactor = OneJokeInteractor(
-                presenter: presenter,
-                chuckAPIGeneric: ChuckAPIGeneric()
-            )
-            
-            let viewController = OneJokeViewController(
-                selectedCategory: categories[indexPath.row],
-                interactor: interactor
-            )
-            
-            presenter.viewController = viewController
-            
-            return viewController
-        }
+        let interactor = OneJokeInteractor(
+            presenter: presenter,
+            chuckAPIGeneric: ChuckAPIGeneric()
+        )
         
-        let viewController = createOneJokeViewController()
+        let viewController = OneJokeViewController(
+            selectedCategory: categories[indexPath.row],
+            interactor: interactor
+        )
+        
+        presenter.viewController = viewController
+        
+        return viewController
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = createOneJokeViewController(indexPath: indexPath)
         self.navigationController?.pushViewController(viewController, animated: true)
 
         self.jokeCategoriesView?.tableView.deselectRow(at: indexPath, animated: true)
@@ -98,8 +92,9 @@ extension JokeCategoriesViewController: UITableViewDataSource {
 
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 55
     }
+
 }

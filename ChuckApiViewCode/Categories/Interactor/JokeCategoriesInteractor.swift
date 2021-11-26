@@ -12,28 +12,29 @@ protocol JokeCategoriesDataStore {
 class JokeCategoriesInteractor: JokeCategoriesInteractorLogic, JokeCategoriesDataStore {
     
     private let presenter: JokeCategoriesPresenterLogic
-    private let jokeCategoriesService: JokeCategoriesService
+    private let chuckAPIGeneric: ChuckAPIGeneric?
+    private let sendURLCategories: String = "categories"
     
     var categories: [String]?
     
-    init(presenter: JokeCategoriesPresenterLogic, jokeCategoriesService: JokeCategoriesService) {
+    init(presenter: JokeCategoriesPresenterLogic, chuckAPIGeneric: ChuckAPIGeneric) {
         self.presenter = presenter
-        self.jokeCategoriesService = jokeCategoriesService
+        self.chuckAPIGeneric = chuckAPIGeneric
     }
-    
+  
     func fetchCategories() {
-        jokeCategoriesService.fetchJokeCategories { [weak self] (categories: [String]) in
-            guard let self = self else {
-                return
+        chuckAPIGeneric?.getAPI(urlSent: sendURLCategories, expecting: [String].self, callback: (
+            { [weak self] categoriesJokeResult in
+                DispatchQueue.main.async {
+                    switch categoriesJokeResult {
+                    case let .failure(error):
+                        print(error)
+                    case let .success(data):
+                        self?.categories = data
+                        self?.presenter.displayCategories(categories: data)
+                    }
+                }
             }
-            self.categories = categories
-            self.presenter.displayCategories(categories: categories)
-        } onFailure: { [weak self] (error: Error) in
-            guard let self = self else {
-                return
-            }
-            
-            self.presenter.displayErrorMessage(error: error)
-        }
+        ))
     }
 }

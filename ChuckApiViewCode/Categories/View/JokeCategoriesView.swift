@@ -21,8 +21,7 @@ class JokeCategoriesView: UIView {
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorColor = primaryColorAPP
-        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
         tableView.register(JokeCategoryTableViewCell.self, forCellReuseIdentifier: JokeCategoryTableViewCell.identifier)
         
         return tableView

@@ -7,7 +7,8 @@ protocol OneJokeViewProtocol: AnyObject {
 
 class OneJokeView: UIView {
 
-    private let primaryColorAPP: UIColor = UIColor(red: 241/255, green: 90/255, blue: 36/255, alpha: 1.0)
+    // laranja - UIColor(red: 241/255, green: 90/255, blue: 36/255, alpha: 1.0)
+    private let primaryColorAPP: UIColor = .black
     
     private weak var delegate: OneJokeViewProtocol?
     

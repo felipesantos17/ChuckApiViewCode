@@ -2,15 +2,18 @@
 import Foundation
 
 protocol OneJokePresenterLogic {
-    func displayOneJokeThisCategory(oneJoke: String)
+    func displayOneJokeThisCategory(oneJokeComplete: OneJoke)
 }
 
 class OneJokePresenter: OneJokePresenterLogic {
     
     weak var viewController: OneJokeViewController?
     
-    func displayOneJokeThisCategory(oneJoke: String) {
-        viewController?.displayOneJoke(oneJoke: oneJoke)
+    private var oneJoke: String = "Empty"
+    
+    func displayOneJokeThisCategory(oneJokeComplete: OneJoke) {
+        self.oneJoke = oneJokeComplete.value
+        viewController?.displayOneJoke(oneJoke: self.oneJoke)
     }
 
 }
